@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('amount');
             $table->foreignId('user_id')->references('id')->on('users')->constrained()->onDelete('cascade')->onUpdate('cascade');   
-        $table->timestamps();
+            $table->timestamps();
         });
     }
 

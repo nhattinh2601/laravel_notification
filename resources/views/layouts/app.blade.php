@@ -55,18 +55,18 @@
                                 <span class="badge badge-light bg-success badge-xs">{{auth()->user()->unreadNotifications->count()}}</span>
                             </a>
                             <ul class="dropdown-menu">
-                                        @if (auth()->user()->unreadNotifications)
-                                        <li class="d-flex justify-content-end mx-1 my-2">
-                                            <a href="{{route('mark-as-read')}}" class="btn btn-success btn-sm">Mark All as Read</a>
-                                        </li>
-                                        @endif
+                                @if (auth()->user()->unreadNotifications)
+                                <li class="d-flex justify-content-end mx-1 my-2">
+                                    <a href="{{route('mark-as-read')}}" class="btn btn-success btn-sm">Mark All as Read</a>
+                                </li>
+                                @endif
 
-                                        @foreach (auth()->user()->unreadNotifications as $notification)
-                                        <a href="#" class="text-success"><li class="p-1 text-success"> {{$notification->data['data']}}</li></a>
-                                        @endforeach
-                                        @foreach (auth()->user()->readNotifications as $notification)
-                                        <a href="#" class="text-secondary"><li class="p-1 text-secondary"> {{$notification->data['data']}}</li></a>
-                                        @endforeach
+                                @foreach (auth()->user()->unreadNotifications as $notification)
+                                <a href="#" class="text-success"><li class="p-1 text-success"> {{$notification->data['data']}}</li></a>
+                                @endforeach
+                                @foreach (auth()->user()->readNotifications as $notification)
+                                <a href="#" class="text-secondary"><li class="p-1 text-secondary"> {{$notification->data['data']}}</li></a>
+                                @endforeach
                             </ul>
                         </li>
                         @endguest
